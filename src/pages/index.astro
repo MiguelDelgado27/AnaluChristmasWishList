@@ -18,13 +18,13 @@ const pageTitle = "Mi Lista de Navidad";
         porttitor at massa. Phasellus a ultrices arcu. Donec viverra, lorem in pellentesque euismod,
         libero justo gravida nibh, non ultricies justo purus ultrices est.
     </p>
-    <div class="button">
-        <a href="/works/">
-            <button>My portfolio</button>
-        </a>
-    </div>
     <h2>Escribe aquí</h2>
-    <textarea class="old-letter" title="letter" id="letter" name="letter" rows="4" cols="50">Querido Santa, esta navidad...</textarea>
+    <form id="myForm">
+        <textarea class="old-letter" title="letter" id="letter" name="letter" rows="4" cols="50">Querido Santa, esta navidad...</textarea>
+        <div class="button">
+            <button>Enviar</button>
+        </div>
+    </form>
     <h2>Skills</h2>
     <div class="link-images">
         <img width="46" height="46" alt="C#" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-plain.svg"/>
@@ -37,7 +37,23 @@ const pageTitle = "Mi Lista de Navidad";
         <img width="46" height="46" alt="JavaScript" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-plain.svg"/>
         <img width="46" height="46" alt="PostGres" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-plain.svg"/>
     </div>
-  
+    <script>
+        function SendMailToSanta(event) {
+            event.preventDefault();
+            const letterTextArea = document.getElementById('letter') as HTMLTextAreaElement;
+            const letterContent = letterTextArea.value;
+
+            fetch('https://node-mail-api-ca88cdb1c05b.herokuapp.com/mail', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ email: letterContent })
+            });
+
+        }
+        document.getElementById('myForm').addEventListener('submit', SendMailToSanta);
+      </script>
 </Layout>
 <style>
     /* small */
@@ -83,6 +99,7 @@ const pageTitle = "Mi Lista de Navidad";
         text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
         box-shadow: 5px 5px 10px rgba(0,0,0,0.2);
         margin-top: 20px;
+        margin-bottom: 20px;
         line-height: 1.6;
         font-size: 20px;
         box-sizing: border-box;
