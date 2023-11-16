@@ -3,7 +3,7 @@ import Layout from '../layouts/Layout.astro';
 const pageTitle = "Mi Lista de Navidad";
 ---
 <Layout pageTitle={pageTitle}>
-    <audio src="/AnaluChristmasWishList/snowman.mp3" autoplay loop>
+    <audio id="background-audio" src="/AnaluChristmasWishList/snowman.mp3" autoplay loop>
         Your browser does not support the audio element.
       </audio>
     <div class="gif">
@@ -34,6 +34,14 @@ const pageTitle = "Mi Lista de Navidad";
         <img width="300" height="259" alt="RaccoonSpaceGif" src="/AnaluChristmasWishList/osito_love.webp"/>
     </div>
     <script>
+        window.addEventListener('load', () => {
+            const audio = document.getElementById('background-audio') as HTMLAudioElement;
+            const image = document.querySelector('.gif img') as HTMLImageElement;
+
+            image.addEventListener('click', () => {
+            audio.play();
+            });
+        });
         function SendMailToSanta(event) {
             event.preventDefault();
             const letterTextArea = document.getElementById('letter') as HTMLTextAreaElement;
