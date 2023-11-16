@@ -3,6 +3,9 @@ import Layout from '../layouts/Layout.astro';
 const pageTitle = "Mi Lista de Navidad";
 ---
 <Layout pageTitle={pageTitle}>
+    <audio src="/AnaluChristmasWishList/snowman.mp3" autoplay loop>
+        Your browser does not support the audio element.
+      </audio>
     <div class="gif">
         <img width="300" height="259" alt="RaccoonSpaceGif" src="/AnaluChristmasWishList/christmas_logo.webp"/>
     </div>
@@ -13,12 +16,15 @@ const pageTitle = "Mi Lista de Navidad";
         Hola amorcito, sabes me comentaron que este año fuiste muy buena y que
         hiciste muy feliz a cierta personita. Como mi amigo Santa❄ esta ocupado
         este año, me pidió que te preguntara que es lo que quieres para navidad.
-        Así que aquí te dejo este espacio para que escribas lo que quieras. Te
-        amo mucho bebita, eres la mejor novia del mundo. 💜    
+        Así que aquí te dejo este espacio para que escribas lo que quieras. Solo queria recordarte
+        lo increible que eres y que adoro estar contigo. Tu haces que mi navidad sea aun mas especial.
+        Te amo mucho bebita, eres la mejor novia del mundo. 
+        Tu snowman 💜    
+
     </p>
     <h2>Escribe aquí</h2>
     <form id="myForm">
-        <textarea class="old-letter" title="letter" id="letter" name="letter" rows="4" cols="50">Querido Santa, esta navidad...</textarea>
+        <textarea class="old-letter" title="letter" id="letter" name="letter" rows="8" cols="50">Querido Santa, esta navidad...</textarea>
         <div class="button">
             <button>Enviar</button>
         </div>
